@@ -7,17 +7,17 @@
 *{
 	font-family:regular;
 	scroll-behavior: smooth !important;
-	color: white;
+	color: #71330b;
 }
 body {
 	margin:0;
 }
 .equal-gradient {
-	background: -webkit-linear-gradient(left, #f0a, #90f);
+	background: -webkit-linear-gradient(left, #71330b 40%, #b2681b);
 }
 
 .equal-gradient-white {
-    background: -webkit-linear-gradient(left, #f0a, #90f) !important;
+    background: -webkit-linear-gradient(left, #71330b 40%, #b2681b) !important;
     color: white !important;
 	font-family: ;
 }
@@ -27,9 +27,11 @@ body {
 	background-color: #01011b;
 	background-repeat: none;
 	background-size: 100% 100vh;*/
-	background: url('img/bgypt.png');
+	background: url('https://www.wallpaperup.com/uploads/wallpapers/2013/11/09/171818/000fd90e2452c761e3d7d1fc885dbccc.jpg');
 	background-attachment: fixed;
-	background-position: cover;
+	background-position:;
+	background-size: 100% 100%;
+	background-blend-mode:  normal
 }
 
 small {
@@ -60,7 +62,7 @@ h1, h2 {
 }
 
 h1 span, h2 span {
-	background: -webkit-linear-gradient(top,	#f07 40%, #90f);
+	background: -webkit-linear-gradient(top, #71330b 40%, #b2681b);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -79,14 +81,14 @@ h2 {
 
 .mechanism {
 	width: 75%;
-	position: relative;
+	position: relative;	/*
 	background: -webkit-linear-gradient(183.56deg, #01011b, #001337);
 	background: -moz-linear-gradient(183.56deg, #01011b 0, #001337 100%);
 	background: linear-gradient(266.44deg, #01011b, #001337);
-	/*
-	background:#090333;
+
 	*/
-	border: 1px solid #ed00c9;
+	background:#f1c280;
+	border: 2px solid #211;
 	border-radius: 25px;
 	margin: 25px auto;
 	padding: 15px;
@@ -119,6 +121,9 @@ button.btn-max {
 	background: #001337;
     width: 35% !important;
     margin-left: 2%;
+}
+button span{
+	color: #fff
 }
 
 .mechanism .input-amount input, .nft-amtl {
@@ -192,7 +197,7 @@ button.btn-max {
 }
 
 #bal_tvl, #bal_apr{
-	text-decoration: 2px dotted underline aqua;
+	text-decoration: 2px dotted underline gold;
 	font-size:0.9em;
 }
 
@@ -204,9 +209,9 @@ textarea:focus, input:focus {
 	content: "";
 	border-radius: 25px;
 	position: absolute;
-	background: -webkit-linear-gradient(183.56deg, #28edec, #0564d7);
-	background: -moz-linear-gradient(183.56deg, #28edec 0, #0564d7 100%);
-	background: linear-gradient(266.44deg, #28edec, #0564d7);
+	background: -webkit-linear-gradient(183.56deg, #71330b 40%, #b2681b);
+	background: -moz-linear-gradient(183.56deg, #71330b 40%, #b2681b);
+	background: linear-gradient(266.44deg, #71330b 40%, #b2681b);
 	/*
 	-webkit-animation: gradient 2s ease infinite;
 	animation: gradient 2s ease infinite;
@@ -241,7 +246,7 @@ textarea:focus, input:focus {
 	background: linear-gradient(266.44deg, #0564d7, #28edec);
 	*/
 	height: 2px;
-	background: -webkit-linear-gradient(left, #f0a, #90f);
+	background: -webkit-linear-gradient(left, #71330b 40%, #b2681b);
 }
 
 #p_cw{font-size:1em;font-family:light}
@@ -252,7 +257,7 @@ textarea:focus, input:focus {
 }
 
 #cw_og {
-	text-decoration: 2px underline aqua;
+	text-decoration: 2px underline goldenrod;
 }
 
 #cw_og {
@@ -263,15 +268,15 @@ textarea:focus, input:focus {
 
 #cw_og:hover {
 	box-shadow: 0px 0px 10px 5px rgba(255,255,255,.05), 0px 0px 10px 5px rgba(255,255,255,0.05);transition: 0.3s;
-	text-decoration: 2px underline wavy aqua
+	text-decoration: 2px underline wavy goldenrod
 }
 
 .extra h3,.extra h4 {
 	color: white;
-	text-shadow: 0px 0px 2px #f07;
+	text-shadow: 0px 0px 5px #000;
 }
 .extra h1 {
-	background: -webkit-linear-gradient(left, #035cd6, #2cfbee);
+	background: -webkit-linear-gradient(left, #71330b 40%, #b2681b);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	font-size:2.5em
@@ -323,6 +328,7 @@ textarea:focus, input:focus {
 .popup .content {
 	max-height: 30%;
 	overflow: auto;
+	color: goldenrod !important;
 }
 
 @media screen and (max-width: 700px){
@@ -353,9 +359,9 @@ textarea:focus, input:focus {
 	max-width: min-content;
 	width: min-content;
 	position: relative;
-	background: -webkit-linear-gradient(183.56deg, #28edec, #6789ff);
-	background: -moz-linear-gradient(183.56deg, #28edec 0, #6789ff 100%);
-	background: linear-gradient(266.44deg, #28edec, #6789ff);
+	background: -webkit-linear-gradient(183.56deg, #71330b 40%, #b2681b);
+	background: -moz-linear-gradient(183.56deg, #71330b 40%, #b2681b);
+	background: linear-gradient(266.44deg, #71330b 40%, #b2681b);
 	padding: 5px;
 	margin: auto;
 	border-radius: 0px 0px 10px 10px;
@@ -384,6 +390,7 @@ textarea:focus, input:focus {
 
 	.mechanism {
 		width: 500px;
+		/*! background: #d7a165; */
 	}
 
 	.mechanism .amount {
