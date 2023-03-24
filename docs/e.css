@@ -328,7 +328,7 @@ textarea:focus, input:focus {
 .popup .content {
 	max-height: 30%;
 	overflow: auto;
-	color: goldenrod !important;
+	color: #def !important;
 }
 
 @media screen and (max-width: 700px){
