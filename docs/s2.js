@@ -234,8 +234,8 @@ async function pre_stats() {
 	rwr = (bal[2]/1e18 - 1) / wks;
 	rbapr = (1+rwr)**52 * 100;
 	$("mintrate").innerHTML = fornum(bal[2],18);
-	$("bal_reb_apr").innerHTML = fornum(rbapr, 0);
-	$("bal_tot_apr").innerHTML = fornum(rbapr + bal[1][0]/1e18, 0);
+	$("bal_reb_apr").innerHTML = fornum5(rbapr, 0, 2);
+	$("bal_tot_apr").innerHTML = fornum5(rbapr + bal[1][0]/1e18, 0, 2);
 	//console.log("bal t/a: ", fornum(bal[0],18), fornum(bal[1][0],18) )
 }
 
