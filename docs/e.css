@@ -100,6 +100,20 @@ h2 {
 	color: white;
 }
 
+.mechanism-header {
+    display: grid;
+    grid-template-columns: auto 33% auto;
+    text-align: center;
+    background: brown;
+    padding: 5px;
+    border-radius: 50px;
+}
+
+.mechanism-header a {
+    color: wheat;
+    text-decoration: none;
+}
+
 button,select {
 	background-color: #ea00cb;
 	padding: 10px 30px;
