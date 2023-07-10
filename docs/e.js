@@ -209,7 +209,7 @@ async function quote() {
 		ve.balanceOfNFT(_id)
 	]);
 	console.log("quoted: ",qd);
-	_price_ve = Number(qd[0].amount);
+	_price_ve = Number(qd[0]);
 	_inc = Number(qd[1].amount);
 	_ts = Number(qd[2]);
 	//_amt = (_inc * _ts) / _base;
@@ -286,7 +286,7 @@ async function sell() {
 		ve.balanceOfNFT(_id)
 	]);
 	console.log("sell.quoted: ",qd);
-	_price_ve = Number(qd[0].amount);
+	_price_ve = Number(qd[0]);
 	_inc = Number(qd[1].amount);
 	_ts = Number(qd[2]);
 	//_amt = (_inc * _ts) / _base;
