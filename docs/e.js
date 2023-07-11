@@ -79,11 +79,11 @@ function fornum(n,d)
 	_n=(Number(n)/10**Number(d));
 	n_=_n;
 	if(_n>1e18){n_=(_n/1e18).toFixed(3)+"Qt"}
-	else if(_n>1e15){n_=(_n/1e15).toFixed(3)+"Qd"}
-	else if(_n>1e12){n_=(_n/1e12).toFixed(3)+"T"}
-	else if(_n>1e9){n_=(_n/1e9).toFixed(3)+"B"}
-	else if(_n>1e6){n_=(_n/1e6).toFixed(3)+"M"}
-	else if(_n>1e3){n_=(_n/1e3).toFixed(3)+"K"}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(2)+"Qd"}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(2)+"T"}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+"B"}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+"M"}
+	else if(_n>1e3){n_=(_n/1e3).toLocaleString(undefined,{minimumFractionDigits: 0, maximumFractionDigits: 0,})}
 	else if(_n>1e0){n_=(_n/1e0).toFixed(5)+""}
 	else if(_n>0.0){n_=(_n/1e0).toFixed(8)+""}
 	return(n_);
