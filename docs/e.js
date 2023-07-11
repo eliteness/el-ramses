@@ -83,7 +83,7 @@ function fornum(n,d)
 	else if(_n>1e12){n_=(_n/1e12).toFixed(2)+"T"}
 	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+"B"}
 	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+"M"}
-	else if(_n>1e3){n_=(_n/1e3).toLocaleString(undefined,{minimumFractionDigits: 0, maximumFractionDigits: 0,})}
+	else if(_n>1e3){n_=(_n).toLocaleString(undefined,{minimumFractionDigits: 0, maximumFractionDigits: 0,})}
 	else if(_n>1e0){n_=(_n/1e0).toFixed(5)+""}
 	else if(_n>0.0){n_=(_n/1e0).toFixed(8)+""}
 	return(n_);
