@@ -1,7 +1,3 @@
-/**
- *Submitted for verification at BscScan.com on 2023-01-10
-*/
-
 /*
 
 FFFFF  TTTTTTT  M   M         GGGGG  U    U  RRRRR     U    U
@@ -71,6 +67,10 @@ contract ElRamses_Depositor {
 	}
 	bool internal _locked;
 	address public dao;
+	address public vault_veram;
+	address public vault_xram;
+	address public vault_ram;
+	address public vault_elr;
 	IELR public ELR;
 	IVotingEscrow public veRAM;
 	IERC20 public XRAM;
@@ -81,6 +81,7 @@ contract ElRamses_Depositor {
 	uint public converted_xram;
 	uint public converted_ram;
 	uint public minted;
+	uint public fees_generated;
 	/*
 	 *	1 xram -> 0.8 veram ; 1.25 xram -> 1 veram
 	 *	1 xram -> 0.65 ram ; 1.538 xram -> 1 veram
@@ -109,7 +110,7 @@ contract ElRamses_Depositor {
         return bytes4(keccak256("onERC721Received(address,address,uint256,bytes)"));
     }
 	function deposit_ram(uint _inc) public lock returns (uint) {
-		RAM.transferFrom(msg.sender, dao, _inc);
+		RAM.transferFrom(msg.sender, vault_ram, _inc);
 		supplied += _inc;
 		converted_ram += _inc;
 		// Calculate and mint the amount of ELR the veNFT is worth. The ratio will change overtime,
@@ -118,13 +119,16 @@ contract ElRamses_Depositor {
 		uint _amt = _inc * 1e18 / price_ram;
 		uint _mint = _amt * (1e6 - fees_ram) / 1e6;
 		ELR.mint(msg.sender, _mint);
-		if(fees_ram > 0) {ELR.mint(dao, _amt - _mint);}
+		if(fees_ram > 0) {
+			ELR.mint(vault_elr, _amt - _mint);
+			fees_generated += (_amt - _mint);
+		}
 		emit Deposit(msg.sender, 0, _inc, _amt, _mint);
 		minted+=_amt;
 		return _mint;
 	}
 	function deposit_xram(uint _inc) public lock returns (uint) {
-		XRAM.transferFrom(msg.sender, dao, _inc);
+		XRAM.transferFrom(msg.sender, vault_xram, _inc);
 		supplied += _inc;
 		converted_xram += _inc;
 		// Calculate and mint the amount of ELR the veNFT is worth. The ratio will change overtime,
@@ -133,12 +137,15 @@ contract ElRamses_Depositor {
 		uint _amt = _inc * 1e18 / price_xram;
 		uint _mint = _amt * (1e6 - fees_xram) / 1e6;
 		ELR.mint(msg.sender, _mint);
-		if(fees_xram > 0) {ELR.mint(dao, _amt - _mint);}
+		if(fees_xram > 0) {
+			ELR.mint(vault_elr, _amt - _mint);
+			fees_generated += (_amt - _mint);
+		}
 		emit Deposit(msg.sender, 2, _inc, _amt, _mint);
 		minted+=_amt;
 		return _mint;
 	}
-	function deposit(uint _id) public returns (uint) { deposit_veram(_id); }
+	function deposit(uint _id) public returns (uint) { return deposit_veram(_id); }
 	function deposit_veram(uint _id) public lock returns (uint) {
 		//self.checks
 		//uint _ts = ELR.totalSupply();
@@ -165,7 +172,10 @@ contract ElRamses_Depositor {
 		uint _amt = _inc * 1e18 / price_veram;
 		uint _mint = _amt * (1e6 - fees_veram) / 1e6;
 		ELR.mint(msg.sender, _mint);
-		if(fees_veram > 0) {ELR.mint(dao, _amt - _mint);}
+		if(fees_veram > 0) {
+			ELR.mint(vault_elr, _amt - _mint);
+			fees_generated += (_amt - _mint);
+		}
 		emit Deposit(msg.sender, _id, _inc, _amt, _mint);
 		minted+=_amt;
 		return _mint;
@@ -177,19 +187,19 @@ contract ElRamses_Depositor {
 		uint256 _id
 	) internal returns(bool) {
 		if( _int128_uint256(_user.amount) > max_nft_size) {
-			veRAM.safeTransferFrom( msg.sender, dao, _id);
+			veRAM.safeTransferFrom( msg.sender, vault_veram, _id);
 			return false;
 		}
 		if( _int128_uint256(_main.amount) > max_nft_size) {
 			//veRAM.safeTransferFrom( address(this), dao, ID);
-			veRAM.safeTransferFrom( msg.sender, dao, _id);
+			veRAM.safeTransferFrom( msg.sender, vault_veram, _id);
 			ID = _id;
 			return false;
 		}
 		else { return true; }
 	}
 
-	function quote(uint _id) public view returns (uint) { quote_veram(uint _id); }
+	function quote(uint _id) public view returns (uint) { return quote_veram(_id); }
 	function quote_veram(uint _id) public view returns (uint) {
 		IVotingEscrow.LockedBalance memory _user = veRAM.locked(_id);
 		return ( ( _int128_uint256(_user.amount) * 1e18 / price_veram) * (1e6 - fees_veram) ) / 1e6;
@@ -209,18 +219,22 @@ contract ElRamses_Depositor {
 	function rawQuote_ram(uint _inc) public view returns (uint) {
 		return ( (_inc * 1e18 / price_ram) * (1e6 - fees_ram) ) / 1e6;
 	}
+	function price() public view returns (uint) {
+		return price_ram;
+	}
 	function setDAO(address d) public DAO {
 		dao = d;
 	}
 	function setID(uint _id) public DAO {
 		ID = _id;
 	}
-	function rescue(address _t, uint _a) public DAO lock {
+	function rescue20(address _t, uint _a) public DAO lock {
 		IERC20 _tk = IERC20(_t);
 		_tk.transfer(dao, _a);
 	}
-	function customCall(address _a, bytes _b) public payable DAO lock {
-		payable(_a).call{value:msg.value}(_b);
+	function rescue721(address _t, uint _a) public DAO lock {
+		IVotingEscrow _tk = IVotingEscrow(_t);
+		_tk.safeTransferFrom(address(this), dao, _a);
 	}
 	function setFees(uint _v, uint _x, uint _r) public DAO {
 		require(_v<=1e6,"EF1");
@@ -236,12 +250,26 @@ contract ElRamses_Depositor {
 		price_xram = _x;
 		price_ram = _r;
 	}
-	constructor(address ve, address x, address e) {
+	function setVaults(address _v, address _x, address _r, address _e) public DAO {
+		require(_v!=address(0),"EV1");
+		require(_x!=address(0),"EV2");
+		require(_r!=address(0),"EV3");
+		require(_e!=address(0),"EV4");
+		vault_veram = _v;
+		vault_xram = _x;
+		vault_ram = _r;
+		vault_elr = _e;
+	}
+	constructor(address ve, address x, address e, address f) {
 		dao=msg.sender;
 		veRAM = IVotingEscrow(ve);
 		XRAM = IERC20(x);
 		RAM = IERC20(IVotingEscrow(ve).token());
 		ELR = IELR(e);
+		vault_veram = msg.sender;
+		vault_xram = msg.sender;
+		vault_ram = msg.sender;
+		vault_elr = f;//fees
 	}
 
 	///////// Utils
