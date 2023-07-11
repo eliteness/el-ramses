@@ -101,12 +101,15 @@ h2 {
 }
 
 .mechanism-header {
+	font-size: 0.75em;
     display: grid;
     grid-template-columns: auto 33% auto;
     text-align: center;
     background: brown;
     padding: 5px;
     border-radius: 50px;
+    z-index: 0;
+    position: relative !important;
 }
 
 .mechanism-header a {
@@ -496,6 +499,9 @@ textarea:focus, input:focus {
 	#bal_tvl, #bal_apr{
 		font-size:revert;
 	}
+
+	.mechanism-header {
+		font-size: 1em;
 
 }
 
