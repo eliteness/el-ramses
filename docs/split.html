@@ -2,81 +2,97 @@
 <html>
 <meta charset="UTF-8">
 <head>
-<meta name="description" content="El Ramses: veRAM Liquid Wrapper | FTM.guru">
+<meta name="description" content="ELRamses: veRAM Liquid Wrapper | FTM.guru">
 <meta name="keywords" content="Ftm.guru, Guru Network, Finance, Decentralized Finance, ARB, Arb1, L2, Arbitrum, defi, Airdrop, RAM, Ramses, Ramses.exchange, Solidly, ftm.guru">
-<title>El Ramses: veRAM Liquid Wrapper | FTM.guru</title>
+<title>ELRamses: veRAM Liquid Wrapper | FTM.guru</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="https://ftm.guru/icons/elr.png"/>
 <link rel="stylesheet" href="e.css"/>
 	<body>
 		<div class="partnership">
-			<h1><span>Mint_ El Ramses </span></h1>
-			<h2>Convert Your Locked veRAM NFT into Liquid ELR Tokens</h2>
-		</div>
-		<div style="display:none;background:brown !important;padding: 0px;border-radius: 50px;border: #000 2px solid;width: calc(max(240px,50%));text-align: center;margin: auto;" class=" mechanism-header" align="center">
-			<a href="" style="color:#210;border-radius: 50px;padding: 5px;background:lightcoral">Mint with veRAM</a>
-			<a style="border-radius: 50px;padding: 5px;cursor: pointer;" onclick="notice(`<h2>Mint with xRAM</h2>For now, this option is available only via our Smart Contract.<h3 align='center'>Coming Soon to ELR Dapp!</h3>`)">Mint with xRAM</a>
-			<a style="border-radius: 50px;padding: 5px;cursor: pointer;" onclick="notice(`<h2>Mint with RAM</h2>For now, this option is available only via our Smart Contract.<h3 align='center'>Coming Soon to ELR Dapp!</h3>`)">Mint with RAM</a>
+			<h1><span>Redeem_ ELRamses </span></h1>
+			<h2>Unlock and get veRAM from your ELRamses!</h2>
+			<br>
 		</div>
 		<div class="mechanism">
 			<div class="amount">
 				<br>
-				<br>
-				<p id="p_cw"><span id="cw" onclick="cw()">Hello 👋 <span id="cw_og">Connect wallet!</span></p>
-				<div align="center">
-					<select class="equal-gradient" id="nft-sel" onchange="quote()">
-						<option value="" selected>Choose a NFT</option>
-					</select>
-				</div>
-				<p><span id="nft-bal">Balance: Loading..</span></p>
+				<p id="p_cw"><span id="cw" onclick="cw()">Hello 👋 <span id="cw_og">Connect wallet!</span></span></p>
+				<!--
+				<p style="">
+					<br>
+					<span id="nft-bal" class="equal-gradient" style="border-radius: 100px;padding: 5px;margin: 5px;position: relative;bottom: 5px;">78,123,456 ELRamses</span>
+					<br>
+					<span style="font-family: light;">Available Balance</span>
+				</p>
+				-->
 			</div>
 			<div class="input-amount">
 				<br>
-				<div class="input-amount-els">
-					<div>
-						<br>
-						<img class="bigthumb" src="https://ftm.guru/icons/ram.svg" style="border-radius:;background:rgba(0,0,0,0.9)"/>
-						<img class="bigthumb_sub" src="img/lock.svg"/>
-					</div>
-					<div class="nft-amt-nums">
-						<span class="nft-amtl" id="nft-amt"><span class="prefill-num">Convert veNFTs of</span></span>
-						<div class="nft-amtl-desc">
-							Locked <b>veRAM</b>
-						</div>
-					</div>
-				</div>
 				<br>
-				<span class="nft-amtl" id="nft-tl"></span>
-				<br><br>
-				<div class="hr-nft"></div>
-				<br><br>
+				<br>
+				<br>
 				<div class="input-amount-els">
 					<div>
-						<br>
 						<img class="bigthumb" src="https://ftm.guru/icons/elr.png" style="border-radius:25%"/>
 						<img class="bigthumb_sub" src="img/lock.svg" style="opacity: 0;">
 					</div>
 					<div class="nft-amt-nums">
-						<span class="nft-amtl" id="nft-offer"><span class="prefill-num">Earn ETH by staking</span></span>
 						<div class="nft-amtl-desc">
-							Liquid $<b>ELR</b>
+							Redeem <b>ELRamses</b>
 						</div>
+						<input class="light-in in-box" placeholder="Enter Amount" style="margin: 0;" id="in_d">
+						<!--<button class="btn-max" onclick='$("in_d").value=$("bal_lp").textContent'>Max</button>-->
+						<span style="font-family: light_italic;">Available: </span>
+						<span style="font-family:" id="bal_lp">??????</span>
 					</div>
 				</div>
+				<div style="margin-top: -25px;" align="center">
+					<button class="submit equal-gradient btn-max" onclick="split(false)"><span id="claim-offer">Reclaim veRAM</span></button>
+				</div>
+
+				<br>
+				<div id="reclaim-pending" align="center">
+					<br>
+					<a onclick="reclaim()" class="equal-gradient" style="cursor:pointer;border-radius:5px;padding:5px;color:#fff">Click here to reclaim pending redemptions!</a>
+				</div>
+				<br>
+
+
+				<div class="hr-nft"></div>
+				<br><br>
+				<div class="earn-stats" style="font-size:1.25em">
+
+					<div class="nft-amtl-desc earn-stats-key"><span style="font-family: light_italic;">Splitting Potential per ELRamses</span></div>
+					<div class="nft-amtl-desc earn-stats-val"><b id="mintrate">1.r</b> veRAM</div>
+
+					<div class="nft-amtl-desc earn-stats-key"><span style="font-family: light_italic;">Total Redemption Fees</span></div>
+					<div class="nft-amtl-desc earn-stats-val"><b id="split-fee-total">r+b</b>%</div>
+
+					<div class="nft-amtl-desc earn-stats-key"><span style="font-family: light_italic;">Current Redeem Rate</span></div>
+					<div class="nft-amtl-desc earn-stats-val"><b id="split-rate">1.r-f</b> veRAM</div>
+
+					<div class="nft-amtl-desc earn-stats-key"><span style="font-family: light_italic;">Available Reserve</span></div>
+					<div class="nft-amtl-desc earn-stats-val"><b id="split-reserve">ts-fl</b> veRAM</div>
+
+				</div>
+
+				<br><br>
+
 			</div>
+			<!--
 			<div style="margin-top: -25px;" align="center">
 				<button class="submit equal-gradient" onclick="sell()"><span id="claim-offer">Select your veNFT</span></button>
 				<br><br>
-				<span style="font-size:1.25em;font-family:light">1 ELR = <span id="mintrate">?</span> veRAM</span>
-				<br><br>
-			</div>
+			</div>-->
 		</div>
 		<div class="analytics">
-			<a class="equal-gradient-white">Mint</a>
-			<a href="staking">Stake</a>
-			<a href="split">Split</a>
-			<a href="https://dune.com/eliteness/el-ramses" target="_blank">Analytics</a>
-			<a href="https://app.ramses.exchange/swap" target="_blank">Trade</a>
+			<a href="./">Mint</a>
+			<a href="./staking">Stake</a>
+			<a class="equal-gradient-white">Split</a>
+			<br><br>
+			<a href="https://dune.com/eliteness/" target="_blank">Analytics</a>
+			<a href="https://eamses.exchange" target="_blank">Trade</a>
 			<a href="https://ftm.guru/docs" target="_blank">Docs</a>
 		</div>
 
@@ -89,6 +105,7 @@
 			</div>
 		</div>
 	</div>
+
 
 
 	<div class="extra">
@@ -107,20 +124,19 @@
 		<br><br>
 	</div>
 
-	<div id="scroll-container" style="display:none">
+	<div id="scroll-container">
 		<div id="scroll-text">
-			 • <span>ELR Price: $Unknown (Unknown THE)</span>
-			 • <span>ELR Minting Ratio (veRAM): 1.Unknown</span>
+			 • <span>ELRamses Price: $Unknown (Unknown RAM)</span>
+			 • <span>ELRamses Minting Ratio (veRAM): 1.Unknown</span>
 			 • <span>Market Cap: $Unknown</span>
-			 • <span>Total Supply: 200,000+</span>
-			 • <span>veRAM Controlled: 228,228+</span>
+			 • <span>Total Supply: 20,000+</span>
+			 • <span>veRAM Controlled: 28,228+</span>
 			 • <span>Collateralization: Unknown%</span>
-			 • <span>ELR/WETH Liquidity: $Unknown</span>
-			 • <span>ELR-Staking (Earn ETH) APR: Unknown%</span>
-			 • <span>ELR/WETH-Farming (Earn RAM) APR: Unknown%</span>
+			 • <span>ELRamses/WMATIC Liquidity: $Unknown</span>
+			 • <span>ELRamses-Staking (Earn WTH) APR: Unknown%</span>
+			 • <span>ELRamses/WMATIC-Farming (Earn RAM) APR: Unknown%</span>
 		<div>
 	<div>
-
 
 
 
@@ -153,13 +169,14 @@
 			<script src="https://ftm.guru/chart.min.js" type="application/javascript"></script>
 			<script src="https://ftm.guru/chartjs-adapter-date-fns.bundle.min.js" type="application/javascript"></script>
 			-->
-			<script src="e.js"></script>
+			<script src="split.js"></script>
 			<script>
 				CHAINID = 42161;
 				RPC_URL = "https://arb1.arbitrum.io/rpc";
 				EXPLORE = "https://arbiscan.io";
 				CHAIN_NAME = "Arbitrum One";
 				CHAIN_GAS = "ETH";
+				ZERO_ADDR = "0x0000000000000000000000000000000000000000";
 				VENFT = "0xAAA343032aA79eE9a6897Dab03bef967c3289a06";
 				VENAME = "veRAM";
 				///VENAMM = "0x6e17d9485b8a84874623cD06482eaE64371869e9";
