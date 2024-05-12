@@ -353,7 +353,8 @@ function notice(c) {
 
 async function dexstats() {
 	vm = new ethers.Contract(VENAMM,VMABI,provider);
-	$("mintrate").innerHTML = ((await vm.price() )/1e18).toFixed(4);
+	elr = new ethers.Contract(WRAP,["function totalSupply() public view returns(uint)"],provider);
+	$("mintrate").innerHTML = ((await vm.price() )/1e18).toFixed(4) + " veRAM + " + (600000/((await elr.totalSupply() )/1e18)).toFixed(4) + " RAM";
 
 	return;
 	vm = new ethers.Contract(VENAMM,VMABI,provider);
