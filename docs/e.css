@@ -7,17 +7,17 @@
 *{
 	font-family:regular;
 	scroll-behavior: smooth !important;
-	color: #71330b;
+	color: #eee;
 }
 body {
 	margin:0;
 }
 .equal-gradient {
-	background: -webkit-linear-gradient(left, #71330b 40%, #b2681b);
+	background: -webkit-linear-gradient(315deg,#7963D0 -2.82%,#414BB5 108.06%);
 }
 
 .equal-gradient-white {
-    background: -webkit-linear-gradient(left, #71330b 40%, #b2681b) !important;
+    background: -webkit-linear-gradient(315deg,#7963D0 -2.82%,#414BB5 108.06%) !important;
     color: white !important;
 	font-family: ;
 }
@@ -26,12 +26,16 @@ body {
 	/*background: url('img/bg.png')
 	background-color: #01011b;
 	background-repeat: none;
-	background-size: 100% 100vh;*/
+	background-size: 100% 100vh;
 	background: url('img/bgypt.jpg');
 	background-attachment: fixed;
 	background-position:;
 	background-size: 100% 100%;
-	background-blend-mode:  normal
+	background-blend-mode:  normal;*/
+	background:radial-gradient(80.62% 80.62% at 50% 19.38%,#2d283e .01%,rgba(26,23,40,.99) 100%);
+	background-size: 100%;
+	background-attachment: fixed;
+	color:#fff;
 }
 
 small {
@@ -62,7 +66,7 @@ h1, h2 {
 }
 
 h1 span, h2 span {
-	background: -webkit-linear-gradient(top, #71330b 40%, #b2681b);
+	background: -webkit-linear-gradient(top, #7963D0, #414BB5);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -87,7 +91,7 @@ h2 {
 	background: linear-gradient(266.44deg, #01011b, #001337);
 
 	*/
-	background:#f1c280;
+	background:rgba(0,0,0,0.5);
 	border: 2px solid #211;
 	border-radius: 25px;
 	margin: 25px auto;
@@ -98,23 +102,6 @@ h2 {
 
 .mechanism .amount p {
 	color: white;
-}
-
-.mechanism-header {
-	font-size: 0.75em;
-    display: grid;
-    grid-template-columns: auto 33% auto;
-    text-align: center;
-    background: brown;
-    padding: 5px;
-    border-radius: 50px;
-    z-index: 0;
-    position: relative !important;
-}
-
-.mechanism-header a {
-    color: wheat;
-    text-decoration: none;
 }
 
 button,select {
@@ -135,7 +122,7 @@ button.submit {
 }
 
 button.btn-max {
-	background: #421d01;
+	background: ;
     width: 35% !important;
     margin-left: 2%;
 }
@@ -179,7 +166,7 @@ button span{
 	width: 100%;
 	border: 0;
 	font-size: 1em;
-	color: #000;
+	color: white;
 }
 
 .input-amount-els{
@@ -226,10 +213,10 @@ textarea:focus, input:focus {
 	content: "";
 	border-radius: 25px;
 	position: absolute;
-	background: -webkit-linear-gradient(183.56deg, #71330b 40%, #b2681b);
-	background: -moz-linear-gradient(183.56deg, #71330b 40%, #b2681b);
-	background: linear-gradient(266.44deg, #71330b 40%, #b2681b);
 	/*
+	background: -webkit-linear-gradient(left, #777, #001337);;
+	background: -moz-linear-gradient(left, #777, #001337);;
+	background: linear-gradient(left, #777, #001337);;
 	-webkit-animation: gradient 2s ease infinite;
 	animation: gradient 2s ease infinite;
 	box-shadow: 0 0 50px #48003d;
@@ -263,10 +250,10 @@ textarea:focus, input:focus {
 	background: linear-gradient(266.44deg, #0564d7, #28edec);
 	*/
 	height: 2px;
-	background: -webkit-linear-gradient(left, #71330b 40%, #b2681b);
+	background: -webkit-linear-gradient(left, rgba(255,155,212,0.25), rgba(255,55,55,0.4));
 }
 
-#p_cw{font-size:1em;font-family:light}
+#p_cw{font-size:1em;font-family:light;position:relative;z-index:1;}
 
 #nft-sel {
 	font-size: 0.8em;
@@ -348,10 +335,6 @@ textarea:focus, input:focus {
 	color: #def !important;
 }
 
-.content * {
-    color: #f81;
-}
-
 @media screen and (max-width: 700px){
 	.box{
 		width: 70%;
@@ -380,14 +363,14 @@ textarea:focus, input:focus {
 	max-width: min-content;
 	width: min-content;
 	position: relative;
-	background: -webkit-linear-gradient(183.56deg, #71330b 40%, #b2681b);
-	background: -moz-linear-gradient(183.56deg, #71330b 40%, #b2681b);
-	background: linear-gradient(266.44deg, #71330b 40%, #b2681b);
+	background: -webkit-linear-gradient(left, #777, #001337);;
+	background: -moz-linear-gradient(315deg,#005a80 -2.82%,#872424 108.06%);;
+	background: linear-gradient(left, #777, #001337);;
 	padding: 5px;
 	margin: auto;
 	border-radius: 0px 0px 10px 10px;
-	color: #001;
-	text-decoration: none
+	color: #eee;
+	text-decoration: none;
 }
 
 #social a img {
@@ -473,7 +456,7 @@ textarea:focus, input:focus {
 		width: 100%;
 		border: 0;
 		font-size: 1.5em;
-		color: #000;
+		color: white;
 	}
 
 	button.submit {
@@ -499,9 +482,6 @@ textarea:focus, input:focus {
 	#bal_tvl, #bal_apr{
 		font-size:revert;
 	}
-
-	.mechanism-header {
-		font-size: 1em;
 
 }
 
@@ -570,25 +550,4 @@ textarea:focus, input:focus {
 .earn-stats-val {
     text-align:right;
     font-size:1.25em;
-}
-
-#user-nfts span:nth-last-child(1), #user-nfts-head span:nth-last-child(1) {
-	text-align: right;
-}
-#user-nfts span:nth-child(1), #user-nfts-head span:nth-child(1) {
-	text-align: left;
-}
-
-.user-nft {
-	border: 1px solid;
-	margin: 10px;
-	padding: 10px;
-	border-radius: 10px;
-	background: darksalmon;
-	display: grid;
-	grid-template-columns: auto auto 80px;
-}
-.user-nft button {
-	background: brown;
-	padding: 5px 10px;
 }
