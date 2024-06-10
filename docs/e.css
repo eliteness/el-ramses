@@ -487,13 +487,13 @@ textarea:focus, input:focus {
 
 
 
-
-
 #scroll-container {
-  background: black;
-  overflow: hidden;
+	background: black;
+	overflow: hidden;
 	padding: 5px;
+	display:none;
 }
+
 
 #scroll-text {
   text-align: right;
@@ -550,4 +550,13 @@ textarea:focus, input:focus {
 .earn-stats-val {
     text-align:right;
     font-size:1.25em;
+}
+
+.dune-counters, .dune-chart {
+	text-align:center;
+}
+
+.dune-chart iframe {
+	width:80%;
+	height:60vh;
 }
