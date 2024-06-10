@@ -2,82 +2,101 @@
 <html>
 <meta charset="UTF-8">
 <head>
-<meta name="description" content="El Retro: veRETRO Liquid Wrapper | FTM.guru">
-<meta name="keywords" content="Ftm.guru, Guru Network, Finance, Decentralized Finance, MATIC, Arbitrum, defi, Airdrop, RETRO, El Retro, Retro, Solidly, ftm.guru">
-<title>El Retro: veRETRO Liquid Wrapper | FTM.guru</title>
+<meta name="description" content="El Ramses: veRAM Liquid Wrapper | FTM.guru">
+<meta name="keywords" content="Ftm.guru, Guru Network, Finance, Decentralized Finance, ARB, Arb1, L2, Arbitrum, defi, Airdrop, RAM, Ramses, Ramses.exchange, Solidly, ftm.guru">
+<title>El Ramses: veRAM Liquid Wrapper | FTM.guru</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" href="https://ftm.guru/icons/elretro.png"/>
+<link rel="shortcut icon" href="https://ftm.guru/icons/elr.png"/>
 <link rel="stylesheet" href="e.css"/>
-<body>
-	<div class="partnership">
-		<h1><span>Mint_ elRETRO </span></h1>
-		<h2>Convert Your Locked veRETRO NFT into Liquid elRETRO Tokens</h2>
-	</div>
-	<div class="mechanism">
-		<div class="analytics" style="position:relative;top:-16px">
-			<a class="equal-gradient-white" href="oretro">Mint with oRETRO</a>
-			<a class="equal-gradient-white" href="veretro">Mint with veRETRO</a>
+	<body>
+		<div class="partnership">
+			<h1><span>Mint_ El Ramses </span></h1>
+			<h2>Convert Your Locked veRAM NFT into Liquid ELR Tokens</h2>
 		</div>
-		<div class="amount">
-			<br>
-			<br>
-			<br>
-			<p id="p_cw"><span id="cw" onclick="cw()">Hello 👋 <span id="cw_og">Connect wallet!</span></p>
-			<div align="center">
-				<select class="equal-gradient" id="nft-sel" onchange="quote()">
-					<option value="" selected>Choose a NFT</option>
-				</select>
-			</div>
-			<p><span id="nft-bal">Balance: Loading..</span></p>
+		<div style="display:none;background:brown !important;padding: 0px;border-radius: 50px;border: #000 2px solid;width: calc(max(240px,50%));text-align: center;margin: auto;" class=" mechanism-header" align="center">
+			<a href="" style="color:#210;border-radius: 50px;padding: 5px;background:lightcoral">Mint with veRAM</a>
+			<a style="border-radius: 50px;padding: 5px;cursor: pointer;" onclick="notice(`<h2>Mint with xRAM</h2>For now, this option is available only via our Smart Contract.<h3 align='center'>Coming Soon to ELR Dapp!</h3>`)">Mint with xRAM</a>
+			<a style="border-radius: 50px;padding: 5px;cursor: pointer;" onclick="notice(`<h2>Mint with RAM</h2>For now, this option is available only via our Smart Contract.<h3 align='center'>Coming Soon to ELR Dapp!</h3>`)">Mint with RAM</a>
 		</div>
-		<div class="input-amount">
-			<br>
-			<div class="input-amount-els">
-				<div>
-					<img class="bigthumb" src="https://ftm.guru/icons/retro.svg" style="border-radius:100px;background:rgba(0,0,0,0.9)"/>
-					<img class="bigthumb_sub" src="img/lock.svg"/>
+		<div class="mechanism" align="center">
+
+			<div class="">
+				<p id="p_cw"><span id="cw" onclick="cw()">Hello 👋 <span id="cw_og">Connect wallet!</span></p>
+				<br><br>
+				<div style="display:grid;grid-template-columns: auto auto 100px;font-family:bold !important" id="user-nfts-head">
+					<span style="font-family:bold !important">NFT ID</span>
+					<span style="font-family:bold !important">RAM Amount</span>
+					<span style="font-family:bold !important">Mint ELR</span>
 				</div>
-				<div class="nft-amt-nums">
-					<span class="nft-amtl" id="nft-amt"><span class="prefill-num">Convert veNFTs of</span></span>
-					<div class="nft-amtl-desc">
-						Locked <b>veRETRO</b>
+				<div id="user-nfts">
+					<br><br><i>Looking for your veRAM NFTs</i>
+				</div>
+				<br><br>
+				<span style="font-size:1.25em;font-family:light">1 ELR = <span id="mintrate">? veRAM + ? RAM</span></span>
+				<br><br>
+			</div>
+			<!--
+			<div class="amount">
+				<br>
+				<br>
+				<p id="p_cw"><span id="cw" onclick="cw()">Hello 👋 <span id="cw_og">Connect wallet!</span></p>
+				<div align="center">
+					<select class="equal-gradient" id="nft-sel" onchange="quote()">
+						<option value="" selected>Choose a NFT</option>
+					</select>
+				</div>
+				<p><span id="nft-bal">Balance: Loading..</span></p>
+			</div>
+			<div class="input-amount">
+				<br>
+				<div class="input-amount-els">
+					<div>
+						<br>
+						<img class="bigthumb" src="https://ftm.guru/icons/ram.svg" style="border-radius:;background:rgba(0,0,0,0.9)"/>
+						<img class="bigthumb_sub" src="img/lock.svg"/>
+					</div>
+					<div class="nft-amt-nums">
+						<span class="nft-amtl" id="nft-amt"><span class="prefill-num">Convert veNFTs of</span></span>
+						<div class="nft-amtl-desc">
+							Locked <b>veRAM</b>
+						</div>
+					</div>
+				</div>
+				<br>
+				<span class="nft-amtl" id="nft-tl"></span>
+				<br><br>
+				<div class="hr-nft"></div>
+				<br><br>
+				<div class="input-amount-els">
+					<div>
+						<br>
+						<img class="bigthumb" src="https://ftm.guru/icons/elr.png" style="border-radius:25%"/>
+						<img class="bigthumb_sub" src="img/lock.svg" style="opacity: 0;">
+					</div>
+					<div class="nft-amt-nums">
+						<span class="nft-amtl" id="nft-offer"><span class="prefill-num">Earn ETH by staking</span></span>
+						<div class="nft-amtl-desc">
+							Liquid $<b>ELR</b>
+						</div>
 					</div>
 				</div>
 			</div>
-			<br>
-			<span class="nft-amtl" id="nft-tl"></span>
-			<br><br>
-			<div class="hr-nft"></div>
-			<br><br>
-			<div class="input-amount-els">
-				<div>
-					<img class="bigthumb" src="https://ftm.guru/icons/elretro.png" style="border-radius:25%"/>
-					<img class="bigthumb_sub" src="https://ftm.guru/icons/64.png" style="opacity:0 ;border-radius:25%">
-				</div>
-				<div class="nft-amt-nums">
-					<span class="nft-amtl" id="nft-offer"><span class="prefill-num">Earn MATIC by staking</span></span>
-					<div class="nft-amtl-desc">
-						Liquid $<b>elRETRO</b>
-					</div>
-				</div>
+			<div style="margin-top: -25px;" align="center">
+				<button class="submit equal-gradient" onclick="sell()"><span id="claim-offer">Select your veNFT</span></button>
+				<br><br>
+				<span style="font-size:1.25em;font-family:light">1 ELR = <span id="mintrate">?</span> veRAM</span>
+				<br><br>
 			</div>
+			-->
 		</div>
-		<div style="margin-top: -25px;" align="center">
-			<button class="submit equal-gradient" onclick="sell()"><span id="claim-offer">Select your veNFT</span></button>
-			<br><br>
-			<span style="font-size:1.25em;font-family:light">1 elRETRO = <span id="mintrate">?</span> RETRO</span>
-			<br><br>
-		</div>
-	</div>
-	<div class="analytics">
-			<a class="equal-gradient-white" >Mint</a>
-			<a href="./staking">Stake</a>
-			<a href="./split">Split</a>
-			<br><br>
-			<a href="https://dune.com/eliteness/" target="_blank">Analytics</a>
-			<a href="https://retro.finance" target="_blank">Trade</a>
+		<div class="analytics">
+			<a class="equal-gradient-white">Mint</a>
+			<a href="staking">Stake</a>
+			<a href="split">Split</a>
+			<a href="https://dune.com/eliteness/el-ramses" target="_blank">Analytics</a>
+			<a href="https://app.ramses.exchange/swap" target="_blank">Trade</a>
 			<a href="https://ftm.guru/docs" target="_blank">Docs</a>
-	</div>
+		</div>
 
 
 	<div id="note" class="overlay">
@@ -89,6 +108,7 @@
 		</div>
 	</div>
 
+
 	<div class="dune-counters">
 		<iframe src="https://dune.com/embeds/3814364/6415099/"></iframe>
 		<iframe src="https://dune.com/embeds/3814364/6415098/"></iframe>
@@ -97,7 +117,6 @@
 	<div class="dune-chart">
 		<iframe src="https://dune.com/embeds/3814364/6415097"></iframe>
 	</div>
-
 
 	<div class="extra">
 		<br><br>
@@ -117,15 +136,15 @@
 
 	<div id="scroll-container" style="display:none">
 		<div id="scroll-text">
-			 • <span>elRETRO Price: $Unknown (Unknown THE)</span>
-			 • <span>elRETRO Minting Ratio (veRETRO): 1.Unknown</span>
+			 • <span>ELR Price: $Unknown (Unknown THE)</span>
+			 • <span>ELR Minting Ratio (veRAM): 1.Unknown</span>
 			 • <span>Market Cap: $Unknown</span>
-			 • <span>Total Supply: 1,400,000+</span>
-			 • <span>veRETRO Controlled: 1,428,228+</span>
+			 • <span>Total Supply: 200,000+</span>
+			 • <span>veRAM Controlled: 228,228+</span>
 			 • <span>Collateralization: Unknown%</span>
-			 • <span>elRETRO/WMATIC Liquidity: $Unknown</span>
-			 • <span>elRETRO-Staking (Earn MATIC) APR: Unknown%</span>
-			 • <span>elRETRO/WMATIC-Farming (Earn RETRO) APR: Unknown%</span>
+			 • <span>ELR/WETH Liquidity: $Unknown</span>
+			 • <span>ELR-Staking (Earn ETH) APR: Unknown%</span>
+			 • <span>ELR/WETH-Farming (Earn RAM) APR: Unknown%</span>
 		<div>
 	<div>
 
@@ -144,7 +163,7 @@
 		</div>
 		<div id="switch">
 			<b id="btn-switch" onclick="cw()">
-				<img src="img/wallet.svg" width="24px" style="position:relative;top:4px">
+				<img width="24px" style="position:relative;top:4px">
 				<span id="cw"></span>
 			</b>
 			<br>Balance: <b style="font-family:bold" id="usb-mtv">?</b> <img class="imgmtv" src="https://ftm.guru/icons/usdc.svg" width="20px" style="position:relative;top:4px">USDC<br>
@@ -163,30 +182,32 @@
 			-->
 			<script src="e.js"></script>
 			<script>
-				CHAINID = 137;
-				RPC_URL = "https://rpc.ankr.com/polygon";
-				EXPLORE = "https://polygonscan.com";
-				CHAIN_NAME = "Matic Polygon";
-				CHAIN_GAS = "MATIC";
-				VENFT = "0xb419ce2ea99f356bae0cac47282b9409e38200fa";
-				VENAME = "veRETRO";
+				CHAINID = 42161;
+				RPC_URL = "https://arb1.arbitrum.io/rpc";
+				EXPLORE = "https://arbiscan.io";
+				CHAIN_NAME = "Arbitrum One";
+				CHAIN_GAS = "ETH";
+				VENFT = "0xAAA343032aA79eE9a6897Dab03bef967c3289a06";
+				VENAME = "veRAM";
+				///VENAMM = "0x6e17d9485b8a84874623cD06482eaE64371869e9";
+				///VENAMM = "0xbfCC8116f75592735623559FE4055D36A2980003";
+				///VENAMM = "0xcC6dC9BE845fbC7a140CA472f3EAe11559CAB792";
+				VENAMM = "0x88bB27FB45ab4C20aE5Be83aB302f5935543d8cc"
+				POOLID = "v0.4.0";
+				REBASE_1 = 1691625600e3;//1692230400e3;
 
-				VENAMM_1 = "0xcc835d13543cec819ac0226dd9ff35b6312b8fca";
-				VENAMM = "0xEaBFc7F90Bb21649018403a234d8388c99EF1cE7";
-				POOLID = "v0.2.0";
+				BASENAME = "RAM";
+				BASELOGO = "https://ftm.guru/icons/ram.svg";
+				BASE = "0xaaa6c1e32c55a7bfa8066a6fae9b42650f262418";
 
-				BASENAME = "RETRO";
-				BASELOGO = "https://ftm.guru/icons/retro.svg";
-				BASE = "0xbfa35599c7aebb0dace9b5aa3ca5f2a79624d8eb";
+				WRAPNAME = "ELR";
+				WRAPLOGO = "img/elr.png";
+				WRAP = "0xa4a9ef80ee5d5fd8426f9861ed13e3aad5ddd096";
 
-				WRAPNAME = "elRETRO";
-				WRAPLOGO = "https://ftm.guru/icons/elretro.png";
-				WRAP = "0xfab311fe3e3be4bb3fed77257ee294fb22fa888b";
+				ID = 232;
+				VOTER = "0xaaa2564deb34763e3d05162ed3f5c2658691f499"
 
-				ID = 2153;
-				VOTER = "0xaccba5e852ab85e5e3a84bc8e36795bd8cec5c73";
-
-				MANAGER = "0xEaBFc7F90Bb21649018403a234d8388c99EF1cE7";
+				MANAGER = "0x88bB27FB45ab4C20aE5Be83aB302f5935543d8cc";
 			</script>
 	</body>
 </html>
