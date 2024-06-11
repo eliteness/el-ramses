@@ -273,6 +273,11 @@ textarea:focus, input:focus {
 	padding: 5px
 }
 
+#cw {
+	position: relative;
+	z-index:1 !important;
+}
+
 #cw_og {
 	text-decoration: 2px underline goldenrod;
 }
